@@ -526,7 +526,9 @@
             return new Alertify();
         });
     } else {
-        window.alertify = new Alertify();
+        $(document).ready(function() {
+            window.alertify = new Alertify();
+        });
     }
 
 }());
