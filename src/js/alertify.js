@@ -263,6 +263,10 @@
                     if (typeof this.promptValue === "string") {
                         input.value = this.promptValue;
                     }
+                    
+                    if (typeof this._inputType === 'string') {
+                        input.type = this._inputType;
+                    }
                 }
 
                 function setupHandlers(resolve) {
@@ -331,6 +335,7 @@
                 }
 
                 this.parent.appendChild(el);
+                
                 setTimeout(function() {
                     el.classList.remove("hide");
                     if(input && item.type && item.type === "prompt") {
@@ -348,6 +353,11 @@
 
             okBtn: function(label) {
                 this.okLabel = label;
+                return this;
+            },
+            
+            inputType: function(type) {
+                this._inputType = type;
                 return this;
             },
 
@@ -473,6 +483,10 @@
             },
             okBtn: function(label) {
                 _alertify.okBtn(label);
+                return this;
+            },
+            inputType: function(type) {
+                _alertify.inputType(type);
                 return this;
             },
             delay: function(time) {
